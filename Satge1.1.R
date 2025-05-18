@@ -67,6 +67,7 @@ class(v)
 
 # VECTORS 
 # We use c() function to create a vector
+# Vector is the basis for everything
 apple <- c("red", "figi", "hymalian", "tropical")
 print(apple)
 # the table command an be used to find how many times a certain object inside a vector repeats
@@ -112,3 +113,20 @@ Colors <-data.frame(
   Color = c('black', 'brown', 'white')
 )
 print(Colors)
+
+#=======================================================================================
+# Importing the weather data set to use it 
+install.packages("devtools")
+library("devtools")
+install_github("Ram-N/weatherData")
+
+library(weatherData)
+help("weatherData")
+
+
+
+
+
+
+
+
