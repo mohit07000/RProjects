@@ -89,6 +89,10 @@ numbers['pink']
 # OR
 apple[c("red", "figi")]
 
+x<-1:5
+as.character(x) #Converts the data type to be character forcefully - this doesn't mean that a character can be converted to a numeric value, but a number can be a character
+
+
 
 
 # Lists 
