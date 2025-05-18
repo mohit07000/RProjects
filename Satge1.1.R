@@ -147,35 +147,3 @@ print(Colors)
 # display the data
 data1
 
-data1$ANNUAL
-#plot(data1$YEAR,data1$ANNUAL)
-library(ggplot2)
-help("ggplot")
-
-weather <- data.frame(
-  year <- c(data1$YEAR),
-  temp <- c(data1$ANNUAL)
-)
-print(weather)
-plot(weather)
-help("plot")
-
-weather_monthly <- data.frame(
-  jan_to_feb <- data1$JAN.FEB,
-  mar_to_may <- data1$MAR.MAY,
-  jun_to_sept <- data1$JUN.SEP,
-  oct_to_dec <- data1$OCT.DEC
-)
-
-print(weather_monthly)
-
-plot(weather_monthly$jan_to_feb....data1.JAN.FEB)
-
-
-sorteddata <- sort(data1$ANNUAL)
-print(sorteddata)
-index<-order(data1$ANNUAL)
-
-data1
-  
-#[index]
