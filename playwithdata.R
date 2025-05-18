@@ -20,6 +20,8 @@ class(annualvec)
 tempindex <- sort(annualvec)
 
 weatherindex <- c(weatherimport$year)
+print(weatherindex)
+class(weatherindex)
 
 names(tempindex) <- weatherindex
 
