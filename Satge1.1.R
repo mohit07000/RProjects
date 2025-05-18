@@ -170,3 +170,12 @@ weather_monthly <- data.frame(
 print(weather_monthly)
 
 plot(weather_monthly$jan_to_feb....data1.JAN.FEB)
+
+
+sorteddata <- sort(data1$ANNUAL)
+print(sorteddata)
+index<-order(data1$ANNUAL)
+
+data1
+  
+#[index]
