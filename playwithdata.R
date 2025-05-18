@@ -31,3 +31,5 @@ sortedannualvec <- order(annualvec)
 print(sortedannualvec)
 
 years[sortedannualvec]
+
+# Return to Stage 1.1
