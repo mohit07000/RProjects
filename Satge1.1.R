@@ -66,11 +66,22 @@ v<-charToRaw("Hello")
 class(v)
 
 # VECTORS 
-# We use c() function to create a vector
+# We use c() function to create a vector this stands for concatenate 
 # Vector is the basis for everything
 apple <- c("red", "figi", "hymalian", "tropical")
 print(apple)
 # the table command an be used to find how many times a certain object inside a vector repeats
+seq(1,10) # Writes the sequence 
+seq(1,10,2) # Writes skipping 2 numbers
+# Use [] to access elements in vectors 
+apple[2]
+# OR
+apple["Figi"] #This works when we have the word figi equated to something. 
+apple2 <- c()
+# OR
+apple[c("red", "figi")]
+
+
 
 # Lists 
 list_1 <- list(c("red", "figi", "hymalian", "tropical")) # Lists can contain vectors functions and other lists
@@ -116,17 +127,34 @@ print(Colors)
 
 #=======================================================================================
 # Importing the weather data set to use it 
-install.packages("devtools")
-library("devtools")
-install_github("Ram-N/weatherData")
+# import and store the dataset in data1
+# data1 <- read.csv(file.choose(), header=T)
+# file.choose(): It opens a menu to choose a CSV file from the desktop.
+# header: It is to indicate whether the first row of the dataset is a variable name or not. Apply T/True if the variable name is present else put F/False.
 
-library(weatherData)
-help("weatherData")
+# display the data
+data1
 
+data1$ANNUAL
+#plot(data1$YEAR,data1$ANNUAL)
+library(ggplot2)
+help("ggplot")
 
+weather <- data.frame(
+  year <- c(data1$YEAR),
+  temp <- c(data1$ANNUAL)
+)
+print(weather)
+plot(weather)
+help("plot")
 
+weather_monthly <- data.frame(
+  jan_to_feb <- data1$JAN.FEB,
+  mar_to_may <- data1$MAR.MAY,
+  jun_to_sept <- data1$JUN.SEP,
+  oct_to_dec <- data1$OCT.DEC
+)
 
+print(weather_monthly)
 
-
-
-
+plot(weather_monthly$jan_to_feb....data1.JAN.FEB)
