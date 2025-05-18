@@ -77,7 +77,15 @@ seq(1,10,2) # Writes skipping 2 numbers
 apple[2]
 # OR
 apple["Figi"] #This works when we have the word figi equated to something. 
-apple2 <- c()
+apple2 <- c('figi' = 190, 'hym' = 476, 'green' = 34) #Assigning names to the elements of the vetor
+# Alternate way
+numbers <- c(177,444,347)
+namesapple <- c('red', 'yellow', 'pink')
+names(numbers) <- namesapple
+
+print (numbers)
+# now pulling nased on name
+numbers['pink']
 # OR
 apple[c("red", "figi")]
 
