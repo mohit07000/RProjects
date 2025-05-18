@@ -10,19 +10,24 @@ sort(weatherimport$ANNUAL)
 order(weatherimport$ANNUAL)
 weatherimport$YEAR[order(weatherimport$ANNUAL)]
 
-weatherimport$YEAR[c(1:5)]
+# Alternative Sort - retrieving the years column and the annual weather data and then putting them into 2 seperate vectors. 
 
 class(weatherimport)
 
 annualvec <- c(weatherimport$ANNUAL)
 class(annualvec)
-
+print(annualvec)
 tempindex <- sort(annualvec)
 
-weatherindex <- c(weatherimport$year)
-print(weatherindex)
-class(weatherindex)
+years <- weatherimport$YEAR[c(1:length(weatherimport$YEAR))]
+print(years)
 
-names(tempindex) <- weatherindex
 
-print(tempindex)
+
+names(years) <- annualvec
+print(years)
+
+sortedannualvec <- order(annualvec)
+print(sortedannualvec)
+
+years[sortedannualvec]
