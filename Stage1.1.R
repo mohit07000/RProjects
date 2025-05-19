@@ -13,7 +13,7 @@ log(8)
 # Use () to push arguments in functions. 
 
 log(exp(1)) # Functions evaluated from inside to out
-help("log")
+
 
 args(log) # Gives the arguments passed 
 log(8,2) # x = 8 base = 2
@@ -84,7 +84,7 @@ namesapple <- c('red', 'yellow', 'pink')
 names(numbers) <- namesapple
 
 print (numbers)
-# now pulling nased on name
+# now pulling based on name
 numbers['pink']
 # OR
 apple[c("red", "figi")]
@@ -107,7 +107,6 @@ M = matrix( c('a','a','b','c','b','a'), nrow = 2, ncol = 3, byrow = TRUE) #Fille
 M2 = matrix( c('a','a','b','c','b','a'), nrow = 3, ncol = 2, byrow = TRUE) #Filled row wise but different dimension
 print(M)
 print(M2)
-help("matrix")
 M3 = matrix( c('a','a','b','c','b','a'), nrow = 2, ncol = 3, byrow = FALSE)
 print(M3)
 
@@ -146,4 +145,38 @@ print(Colors)
 
 # display the data
 data1
+
+max(data1$ANNUAL)
+which.max(data1$ANNUAL)
+data1$YEAR[116]
+rank(data1$ANNUAL)
+data1$YEAR[rank(data1$ANNUAL)]
+
+r <- rank(murders$population)
+print(r)
+my_df2 <- data.frame("State_Name" = murders$state,r)
+
+my_df2
+
+
+r <- rank(murders$population)
+print(r)
+
+my_df3 <- data.frame(
+  murders$state, 
+  r
+)
+my_df3
+murders$state[order(my_df3$r)]
+
+my_df4 <- data.frame(
+  murders$state[order(my_df3$r)],
+  sort(r)
+)
+
+my_df4
+
+na_example
+
+ind <- is.na(na_example)
 
