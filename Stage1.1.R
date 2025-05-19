@@ -224,3 +224,28 @@ notabb <- c('MA' , 'MO' , 'ME' , 'MO', 'MU')
 notabb[which(!m == 'TRUE')]
 
 
+library(dslabs)
+data(movielens)
+movielens
+class(movielens$title)
+class(movielens$genres)
+
+nlevels(movielens$genres)
+
+
+data(olive)
+olive
+which(olive$region == 'Southern Italy')
+olive$palmitic[which(olive$region == 'Southern Italy')]
+
+
+which(olive$region == 'Sardiina')
+olive$palmitic[which(olive$region == 'Sardinia')]
+
+
+which(olive$region == 'Northern Italy')
+olive$palmitic[which(olive$region == 'Northern Italy')]
+label <- c('Southern Italy' , 'Sardinia' , 'Northern Italy')
+boxplot(olive$palmitic[which(olive$region == 'Southern Italy')], olive$palmitic[which(olive$region == 'Sardinia')], olive$palmitic[which(olive$region == 'Northern Italy')], name = label)
+
+
