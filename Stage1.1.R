@@ -180,3 +180,47 @@ na_example
 
 ind <- is.na(na_example)
 
+# The name of the state with the maximum population is found by doing the following
+murders$state[which.max(murders$population)]
+
+# how to obtain the murder rate
+murder_rate <- murders$total / murders$population * 100000
+
+# ordering the states by murder rate, in decreasing order
+murders$state[order(murder_rate, decreasing=TRUE)] # Passing logical arguments for functions. 
+
+
+# the ! operator 
+na_example
+i <- is.na(na_example)
+print(i)
+
+mean(na_example[!i]) # here i represents TRUE so !i represents all the FASLE values i.e. numbers. 
+
+# Indexing 
+murder_rate
+index <- murder_rate < 0.5
+index
+
+murders$state[index]
+
+index2 <- murder_rate <= 1 & murders$region == 'West'
+
+murders$state[index2]
+
+# Indexing functions 
+
+# Which gives the enters of logical vectors that are true. which(condition eg: data == 'Test')
+# Match look in the entries and gives the index, match (c(a,d,c),data) finds the indexes of a,b,c in data. 
+# %in% weather or not a vector in in another vector above it searches if a,b,c exits in data.
+
+murders$state[which(murder_rate < 1 & murders$region == 'Northeast')]
+mean(murder_rate)
+length(which(murder_rate < mean(murder_rate)))
+
+m <- (c('MA' , 'MO' , 'ME' , 'MO', 'MU') %in% murders$abb)
+!m
+notabb <- c('MA' , 'MO' , 'ME' , 'MO', 'MU')
+notabb[which(!m == 'TRUE')]
+
+
