@@ -40,8 +40,8 @@ library(dplyr)
 
 # Filtering 
 
-gtr24deg <- IMDData %>% filter(IMDData$ANNUAL > 25)
-gtr24degJanFeb <- IMDData %>% filter(IMDData$JAN.FEB < 19)
+gtr24deg <- filter(IMDData, IMDData$ANNUAL > 25) |>  select(YEAR, JAN.FEB)
+gtr24degJanFeb <- filter(IMDData, IMDData$JAN.FEB < 19) |>  select(YEAR, JAN.FEB)
 
 gtr24deg
 gtr24degJanFeb
