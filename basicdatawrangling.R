@@ -56,11 +56,16 @@ weatherjanfeb
 weatherjanfeb2000s <- select(weatherjanfeb, YEAR, JAN.FEB, y2ychangejanfeb) |> filter(weatherjanfeb$y2ychangejanfeb < 1 & weatherjanfeb$YEAR >= 2000)
 weatherjanfeb2000s
 
-plot(weatherjanfeb2000s$YEAR, weatherjanfeb2000s$y2ychangejanfeb, type = 'l', pch=20, xlab = 'Year', ylab = 'Change', main = 'Change y2y in 20th Century till 2021')
+# plot(weatherjanfeb2000s$YEAR, weatherjanfeb2000s$y2ychangejanfeb, type = 'l', pch=20, xlab = 'Year', ylab = 'Change', main = 'Change y2y in 20th Century till 2021')
 
 
+data("murders")
+murders
+mystates <- murders |> mutate(murder_rate, murder_rank = rank(-murder_rate)) |> select(state, region, murder_rank) |> filter(region == 'West' | region == 'Northeast')
 
+mystates
 
+#|> select(state, murder_rate, murder_rank)
 
 
 
