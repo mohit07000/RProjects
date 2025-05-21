@@ -1,4 +1,4 @@
-# weatherIMD <- read.csv(choose.files(), header=T)
+# weatherIMD <- read.csv(file.choose(), header=T)
 
 weatherIMD
 
@@ -18,7 +18,7 @@ weatherIMD <- mutate(weatherIMD, y2ychange = weatherIMD$ANNUAL[y2] - weatherIMD$
 weatherIMD
 
 # To filter specific data
-filter(weatherIMD, y2ygrowth > 0)
+filter(weatherIMD, y2ychange > 0)
 
 # Using select to selectively extract specific columns
 weathery2yIMD <- select(weatherIMD, YEAR, y2ychange)
@@ -66,6 +66,69 @@ mystates <- murders |> mutate(murder_rate, murder_rank = rank(-murder_rate)) |> 
 mystates
 
 #|> select(state, murder_rate, murder_rank)
+
+# Summarize data 
+# group_by and Summarize 
+
+library(tidyverse)
+
+# Summarize 
+summarise(weatherjanfeb, 
+          minimum = min(weatherjanfeb$JAN.FEB),
+          median = median(weatherjanfeb$JAN.FEB),
+          maximum = max(weatherjanfeb$JAN.FEB)
+          )
+
+quantile(weatherjanfeb$JAN.FEB, c(0,0.25,0.5,0.75,0.90,1)) # Here the vector c() helps us to get specific quarters of the data. 
+
+quatersum <- function(x){
+  q <- quantile(x,c(0,0.5,1))
+  data_frame(minmum = q[1],
+             median = q[2],
+             maximum = q[3]
+             )
+}
+
+quatersum(weatherjanfeb$JAN.FEB)
+# converting the output from data frame to a nuneric 
+minmedmax <- function(x){
+  q <- quantile(x,c(0,0.5,1))
+  data_frame(minimum = q[1],
+             median = q[2],
+             maximum = q[3],
+  )
+}
+help("summarise")
+# Now the class is a numeric 
+m <- minmedmax(weatherjanfeb$JAN.FEB)
+m
+class(m)
+class(pull(m))
+n <- pull(m)
+# The data type change to numeric 
+
+# the group by function is used to categorize data be specific factors. 
+# Example, if we want to group by positive increase years and negative increase years we can use the group by - first lets filter the positive groups and negative groups
+poschange <- weatherIMD |> filter(y2ychange > 0) |> mutate(Netrate = '+')
+poschange
+
+negchange <- weatherIMD |> filter(y2ychange < 0) |> mutate(Netrate = '-')
+negchange
+
+#dplyr sorting 
+# help("head") # Head returns the first 4-5 rows only 
+
+# The arrange sorting function allows us to sort a specific column the difference is that here we don't need to mention the parent data frame, this is similar to sort() or rank() but is used in |> operations. 
+# This also allows nested sorting, that is arrange(sort by condition 1, then sort again by condition 2)
+# arrange(desc()) allows sorting in the reverse direction. 
+
+# The top_n(column,number) allows us to display the first x numebr of rows of the specific coloumn - more granular control than the head() function. 
+
+install.packages(NHANES)
+
+
+
+
 
 
 

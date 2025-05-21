@@ -136,116 +136,130 @@ Colors <-data.frame(
 )
 print(Colors)
 
-#=======================================================================================
-# Importing the weather data set to use it 
-# import and store the dataset in data1
-# data1 <- read.csv(file.choose(), header=T)
-# file.choose(): It opens a menu to choose a CSV file from the desktop.
-# header: It is to indicate whether the first row of the dataset is a variable name or not. Apply T/True if the variable name is present else put F/False.
-
-# display the data
-data1
-
-max(data1$ANNUAL)
-which.max(data1$ANNUAL)
-data1$YEAR[116]
-rank(data1$ANNUAL)
-data1$YEAR[rank(data1$ANNUAL)]
-
-r <- rank(murders$population)
-print(r)
-my_df2 <- data.frame("State_Name" = murders$state,r)
-
-my_df2
-
-
-r <- rank(murders$population)
-print(r)
-
-my_df3 <- data.frame(
-  murders$state, 
-  r
+class(Colors$height)
+# Converting specific columns into strings rather than factors -> here the gender is a factor, but in some situations we dont want this. So we use stringsasFactors = FALSE
+Colors <-data.frame(
+  gender = c('Male' , 'Female', 'Male'),
+  height = c(152, 171, 165),
+  Color = c('black', 'brown', 'white'),
+  stringsAsFactors = FALSE # By default strings in a data frame are converted into factors. 
 )
-my_df3
-murders$state[order(my_df3$r)]
-
-my_df4 <- data.frame(
-  murders$state[order(my_df3$r)],
-  sort(r)
-)
-
-my_df4
-
-na_example
-
-ind <- is.na(na_example)
-
-# The name of the state with the maximum population is found by doing the following
-murders$state[which.max(murders$population)]
-
-# how to obtain the murder rate
-murder_rate <- murders$total / murders$population * 100000
-
-# ordering the states by murder rate, in decreasing order
-murders$state[order(murder_rate, decreasing=TRUE)] # Passing logical arguments for functions. 
+print(Colors)
 
 
-# the ! operator 
-na_example
-i <- is.na(na_example)
-print(i)
-
-mean(na_example[!i]) # here i represents TRUE so !i represents all the FASLE values i.e. numbers. 
-
-# Indexing 
-murder_rate
-index <- murder_rate < 0.5
-index
-
-murders$state[index]
-
-index2 <- murder_rate <= 1 & murders$region == 'West'
-
-murders$state[index2]
-
-# Indexing functions 
-
-# Which gives the enters of logical vectors that are true. which(condition eg: data == 'Test')
-# Match look in the entries and gives the index, match (c(a,d,c),data) finds the indexes of a,b,c in data. 
-# %in% weather or not a vector in in another vector above it searches if a,b,c exits in data.
-
-murders$state[which(murder_rate < 1 & murders$region == 'Northeast')]
-mean(murder_rate)
-length(which(murder_rate < mean(murder_rate)))
-
-m <- (c('MA' , 'MO' , 'ME' , 'MO', 'MU') %in% murders$abb)
-!m
-notabb <- c('MA' , 'MO' , 'ME' , 'MO', 'MU')
-notabb[which(!m == 'TRUE')]
 
 
-library(dslabs)
-data(movielens)
-movielens
-class(movielens$title)
-class(movielens$genres)
 
-nlevels(movielens$genres)
-
-
-data(olive)
-olive
-which(olive$region == 'Southern Italy')
-olive$palmitic[which(olive$region == 'Southern Italy')]
-
-
-which(olive$region == 'Sardiina')
-olive$palmitic[which(olive$region == 'Sardinia')]
-
-
-which(olive$region == 'Northern Italy')
-olive$palmitic[which(olive$region == 'Northern Italy')]
-label <- c('Southern Italy' , 'Sardinia' , 'Northern Italy')
-boxplot(olive$palmitic[which(olive$region == 'Southern Italy')], olive$palmitic[which(olive$region == 'Sardinia')], olive$palmitic[which(olive$region == 'Northern Italy')], name = label)
-
-
+# #=======================================================================================
+# # Importing the weather data set to use it 
+# # import and store the dataset in data1
+# # data1 <- read.csv(file.choose(), header=T)
+# # file.choose(): It opens a menu to choose a CSV file from the desktop.
+# # header: It is to indicate whether the first row of the dataset is a variable name or not. Apply T/True if the variable name is present else put F/False.
+# 
+# # display the data
+# data1
+# 
+# max(data1$ANNUAL)
+# which.max(data1$ANNUAL)
+# data1$YEAR[116]
+# rank(data1$ANNUAL)
+# data1$YEAR[rank(data1$ANNUAL)]
+# 
+# r <- rank(murders$population)
+# print(r)
+# my_df2 <- data.frame("State_Name" = murders$state,r)
+# 
+# my_df2
+# 
+# 
+# r <- rank(murders$population)
+# print(r)
+# 
+# my_df3 <- data.frame(
+#   murders$state, 
+#   r
+# )
+# my_df3
+# murders$state[order(my_df3$r)]
+# 
+# my_df4 <- data.frame(
+#   murders$state[order(my_df3$r)],
+#   sort(r)
+# )
+# 
+# my_df4
+# 
+# na_example
+# 
+# ind <- is.na(na_example)
+# 
+# # The name of the state with the maximum population is found by doing the following
+# murders$state[which.max(murders$population)]
+# 
+# # how to obtain the murder rate
+# murder_rate <- murders$total / murders$population * 100000
+# 
+# # ordering the states by murder rate, in decreasing order
+# murders$state[order(murder_rate, decreasing=TRUE)] # Passing logical arguments for functions. 
+# 
+# 
+# # the ! operator 
+# na_example
+# i <- is.na(na_example)
+# print(i)
+# 
+# mean(na_example[!i]) # here i represents TRUE so !i represents all the FASLE values i.e. numbers. 
+# 
+# # Indexing 
+# murder_rate
+# index <- murder_rate < 0.5
+# index
+# 
+# murders$state[index]
+# 
+# index2 <- murder_rate <= 1 & murders$region == 'West'
+# 
+# murders$state[index2]
+# 
+# # Indexing functions 
+# 
+# # Which gives the enters of logical vectors that are true. which(condition eg: data == 'Test')
+# # Match look in the entries and gives the index, match (c(a,d,c),data) finds the indexes of a,b,c in data. 
+# # %in% weather or not a vector in in another vector above it searches if a,b,c exits in data.
+# 
+# murders$state[which(murder_rate < 1 & murders$region == 'Northeast')]
+# mean(murder_rate)
+# length(which(murder_rate < mean(murder_rate)))
+# 
+# m <- (c('MA' , 'MO' , 'ME' , 'MO', 'MU') %in% murders$abb)
+# !m
+# notabb <- c('MA' , 'MO' , 'ME' , 'MO', 'MU')
+# notabb[which(!m == 'TRUE')]
+# 
+# 
+# library(dslabs)
+# data(movielens)
+# movielens
+# class(movielens$title)
+# class(movielens$genres)
+# 
+# nlevels(movielens$genres)
+# 
+# 
+# data(olive)
+# olive
+# which(olive$region == 'Southern Italy')
+# olive$palmitic[which(olive$region == 'Southern Italy')]
+# 
+# 
+# which(olive$region == 'Sardiina')
+# olive$palmitic[which(olive$region == 'Sardinia')]
+# 
+# 
+# which(olive$region == 'Northern Italy')
+# olive$palmitic[which(olive$region == 'Northern Italy')]
+# label <- c('Southern Italy' , 'Sardinia' , 'Northern Italy')
+# boxplot(olive$palmitic[which(olive$region == 'Southern Italy')], olive$palmitic[which(olive$region == 'Sardinia')], olive$palmitic[which(olive$region == 'Northern Italy')], name = label)
+# 
+# 
