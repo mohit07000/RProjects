@@ -122,10 +122,12 @@ negchange
 # This also allows nested sorting, that is arrange(sort by condition 1, then sort again by condition 2)
 # arrange(desc()) allows sorting in the reverse direction. 
 
-# The top_n(column,number) allows us to display the first x numebr of rows of the specific coloumn - more granular control than the head() function. 
+# The top_n(column,number) allows us to display the first x number of rows of the specific column - more granular control than the head() function. 
 
-install.packages(NHANES)
 
+# Working with a new data set, 
+# UKRailRide <- read.csv(file.choose(), header=T)
+UKRailRide
 
 
 
