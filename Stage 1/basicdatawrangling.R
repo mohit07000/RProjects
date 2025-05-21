@@ -98,7 +98,7 @@ minmedmax <- function(x){
              maximum = q[3],
   )
 }
-help("summarise")
+# help("summarise")
 # Now the class is a numeric 
 m <- minmedmax(weatherjanfeb$JAN.FEB)
 m
@@ -126,10 +126,13 @@ negchange
 
 
 # Working with a new data set, 
-# UKRailRide <- read.csv(file.choose(), header=T)
+# UKRailRide <- read.csv(file.choose(), header=T, stringsAsFactors = TRUE)
 UKRailRide
 
-
+UKRailRide |> group_by(Purchase.Type, Payment.Method, Railcard) |> summarise(
+  total_revenue = sum(Price),
+  mean = mean(Price)
+)
 
 
 
